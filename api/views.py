@@ -6,11 +6,9 @@ from api.forms import ImageClassificationForm
 from api.models import ImageClassification
 from api.serializers import ImageClassificationSerializer
 
-from api.ai_workshop import give_top_three_candidates, model, named_labels
-# from skimage.io import imread
+from api.ai_workshop import give_top_three_candidates, model, named_labels, read_tensor_from_image_url
 import requests
 
-import tensorflow as tf
 
 class ApiGetPost(APIView):
 
@@ -26,7 +24,6 @@ class ApiGetPost(APIView):
             image = read_tensor_from_image_url(
                 image_url
             )
-            # image = imread(image_url)
             scores = give_top_three_candidates(image, model, named_labels)
             serializer.validated_data['prediction1'] = scores[0]
             serializer.validated_data['prediction2'] = scores[1]
@@ -44,12 +41,3 @@ def landing_page(req):
     return render(req, 'spa_page.html', context)
 
 
-def read_tensor_from_image_url(url,
-                               input_height=299,
-                               input_width=299,
-                               input_mean=0,
-                               input_std=255):
-    image_reader = tf.image.decode_image(
-        requests.get(url).content, channels=3, name="jpeg_reader")
-
-    return image_reader

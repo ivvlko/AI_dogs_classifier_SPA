@@ -1,5 +1,8 @@
 import tensorflow as tf
 from skimage.transform import resize
+import requests
+
+
 
 
 named_labels = {0: 'Chihuahua',
@@ -143,3 +146,14 @@ def give_top_three_candidates(pic, model, named_labels=named_labels):
     index3 = list(predictions[0]).index(prediction)
     third_prediction = f'Third guess is {named_labels[index3]} with {round((100 * prediction), 2)} % certainty'
     return [first_prediction, second_prediction, third_prediction]
+
+
+def read_tensor_from_image_url(url,
+                               input_height=299,
+                               input_width=299,
+                               input_mean=0,
+                               input_std=255):
+ image_reader = tf.image.decode_image(
+  requests.get(url).content, channels=3, name="jpeg_reader")
+
+ return image_reader
