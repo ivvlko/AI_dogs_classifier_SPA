@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Potta+One&family=Yusei+Magic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=PT+Sans:wght@700&display=swap');
+
+
+html {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 1200px;
+    font-family: 'Yusei Magic', sans-serif;
+    text-align: center;
+    background: url("https://lh3.googleusercontent.com/proxy/UoPDY7PlfiNRSnyU8gDh9jyC3E9p8LxJ31eSZ5lvhK9NQF4ZOsKw9f6RuM0MDaTDp1hPAWA8g6AYybwirc462c2kGN-knNEkUweSv4Kz0LwYtUI");
+    background-size: 100%;
+}
+
+#url-form {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+input {
+    width: 300px;
+}
+
+h1 {
+    max-width: 100%;
+
+}
+
+.result-section {
+    margin-top: 30px;
+}
+
+img {
+    max-width: 100%;
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+    font-family: 'PT Sans', sans-serif;
+    padding-top: 10px;
+}
+
+button {
+    background: gray;
+    color: black;
+    border-radius: 10%;
+    padding: 5px;
+
+}
+
+button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.clear-btn {
+    display: inline-block;
+}
+
+.wrapper-main {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+#show-details:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+p{
+    text-align: center;
+    max-width: 100%;
+    margin: 0 10%;
+}
+#error-message{
+    color: darkred;
+}
