@@ -38,6 +38,12 @@ function handleForm(e) {
 
 
 function createElementWithResult(d) {
+    
+    let splitted = d['prediction1'].split(' ');
+    let firstPredictionPercentage = splitted[5]
+    if (Number(firstPredictionPercentage) < 10){
+        return `<h1 id="error-message">No Dog in the Picture or I've Never Seen This One Before</h1>`
+    
     if (d['prediction1'] && d['url'] && d['prediction2'] && d['prediction3']) {
         let template = `<article class="result-wrapper">
                         <img src="${d['url']}" alt="">
