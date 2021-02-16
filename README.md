@@ -1,6 +1,6 @@
 # AI_dogs_classifier_SPA
 
-Deployed on AWS - [click](http://44.230.105.84/).
+Deployed on AWS - [click](http://dogsbreed.ml/).
 
 This App is built with Django/Rest(backend and api) and Vanilla JavaScript. The process and  full cycle of training the AI in [this repository](https://github.com/ivvlko/CNN-Transfer-Learning-Classification).
 
