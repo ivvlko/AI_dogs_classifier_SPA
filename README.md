@@ -2,6 +2,8 @@
 
 Deployed on AWS - [click](http://dogsbreed.ml/).
 
+## Demo [youtube](https://youtu.be/yeMlz56_LpI) 
+
 This App is built with Django/Rest(backend and api) and Vanilla JavaScript. The process and  full cycle of training the AI in [this repository](https://github.com/ivvlko/CNN-Transfer-Learning-Classification).
 
 
