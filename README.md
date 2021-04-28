@@ -4,6 +4,9 @@ Deployed on AWS - [click](http://dogsbreed.ml/).
 
 ## Demo [youtube](https://youtu.be/yeMlz56_LpI) 
 
+[![](http://img.youtube.com/vi/yeMlz56_LpI/0.jpg)](http://www.youtube.com/watch?v=yeMlz56_LpI "Dogs Breeds Classifier")
+
+
 This App is built with Django/Rest(backend and api) and Vanilla JavaScript. The process and  full cycle of training the AI in [this repository](https://github.com/ivvlko/CNN-Transfer-Learning-Classification).
 
 
