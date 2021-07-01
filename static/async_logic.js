@@ -35,23 +35,13 @@ function handleForm(e) {
         )
 
 }
-
-
 function createElementWithResult(d) {
-<<<<<<< HEAD
-    let splitted = d['prediction1'].split(' ');
-    let firstPredictionPercentage = splitted[5]
-    if (Number(firstPredictionPercentage) < 10){
-        return `<h1 id="error-message">No Dog in the Picture or I've Never Seen This One Before</h1>`
-    }
-=======
-    
+
     let splitted = d['prediction1'].split(' ');
     let firstPredictionPercentage = splitted[5]
     if (Number(firstPredictionPercentage) < 10){
         return `<h1 id="error-message">No Dog in the Picture or I've Never Seen This One Before</h1>`}
-    
->>>>>>> ddeed685ab90b4a468d43e4ed8c4bd3ddb5c29f9
+
     if (d['prediction1'] && d['url'] && d['prediction2'] && d['prediction3']) {
         let template = `<article class="result-wrapper">
                         <img src="${d['url']}" alt="">
