@@ -124,9 +124,10 @@ named_labels = {0: 'Chihuahua',
  116: 'Mexican_hairless',
  117: 'dingo',
  118: 'dhole',
- 119: 'African_hunting_dog'}
+ 119: 'African_hunting_dog',
+ 120: 'Karakachanka'}
 
-model = tf.keras.models.load_model('api/model/saved_model-20210201T203511Z-001/saved_model/resnet_inception')
+model = tf.keras.models.load_model('api/model/saved_model-20210630T164638Z-001/saved_model/multi_label_model')
 
 
 def give_top_three_candidates(pic, model, named_labels=named_labels):
