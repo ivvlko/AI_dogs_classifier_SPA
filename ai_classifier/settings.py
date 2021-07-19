@@ -1,5 +1,4 @@
 import os
-from os.path import join
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 
@@ -56,10 +55,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ai_classifier.wsgi.application'
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('NAME'),
+        'USER': os.environ.get('USER'),
+        'PASSWORD': os.environ.get('PASSWORD'),
+        'HOST': os.environ.get('HOST'),
+        'PORT': os.environ.get('PORT'),
     }
 }
 
