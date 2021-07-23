@@ -3,8 +3,6 @@ from skimage.transform import resize
 import requests
 
 
-
-
 named_labels = {0: 'Chihuahua',
  1: 'Japanese_spaniel',
  2: 'Maltese_dog',
@@ -130,7 +128,7 @@ named_labels = {0: 'Chihuahua',
 model = tf.keras.models.load_model('api/model/saved_model-20210630T164638Z-001/saved_model/multi_label_model')
 
 
-def give_top_three_candidates(pic, model, named_labels=named_labels):
+def give_top_candidate(pic, model, named_labels=named_labels):
     picture = resize(pic, (299, 299), preserve_range=True)
     picture = tf.keras.applications.inception_resnet_v2.preprocess_input(picture)
     picture = tf.expand_dims(picture, axis=0)
@@ -139,14 +137,8 @@ def give_top_three_candidates(pic, model, named_labels=named_labels):
     index1 = list(predictions[0]).index(prediction)
     predictions[0][index1] = 0
     first_prediction = f'This is a {named_labels[index1]} with {round((100 * prediction), 2)} % certainty'
-    prediction = max(predictions[0])
-    index2 = list(predictions[0]).index(prediction)
-    second_prediction = f'Second guess is {named_labels[index2]} with {round((100 * prediction), 2)} % certainty'
-    predictions[0][index2] = 0
-    prediction = max(predictions[0])
-    index3 = list(predictions[0]).index(prediction)
-    third_prediction = f'Third guess is {named_labels[index3]} with {round((100 * prediction), 2)} % certainty'
-    return [first_prediction, second_prediction, third_prediction]
+
+    return [first_prediction, index1]
 
 
 def read_tensor_from_image_url(url,
@@ -155,6 +147,5 @@ def read_tensor_from_image_url(url,
                                input_mean=0,
                                input_std=255):
  image_reader = tf.image.decode_image(
-  requests.get(url).content, channels=3, name="jpeg_reader")
-
+ requests.get(url).content, channels=3, name="jpeg_reader")
  return image_reader

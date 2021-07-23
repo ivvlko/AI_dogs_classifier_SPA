@@ -80,3 +80,8 @@ p{
 #error-message{
     color: darkred;
 }
+
+#correct-button-holder{
+    display: inline-block;
+    background-color: "green";
+}
