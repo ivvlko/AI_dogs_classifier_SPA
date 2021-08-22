@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from rest_framework.response import Response, status
+from rest_framework.response import Response
+from rest_framework import serializers, status
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from api.forms import ImageClassificationForm
 from api.models import ImageClassification
@@ -27,6 +28,12 @@ class ListCreateView(ListCreateAPIView):
 
 
 class UpdateResultView(RetrieveUpdateDestroyAPIView):
+
+    def get(self, request, pk):
+        obj = ImageClassification.objects.get(id=pk)
+        serializer = ImageClassificationSerializer(obj)
+        return Response(serializer.data)
+
     def put(self, request, *args, **kwargs):
         pk = self.kwargs.get('pk')
         obj = ImageClassification.objects.get(id=pk)
