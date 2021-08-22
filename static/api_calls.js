@@ -14,10 +14,11 @@ let currentPrediction = -1
 
 form.addEventListener('submit', handleForm);
 
-correctBtn.addEventListener('click', addClickHandler);
+correctBtn.addEventListener('click', updateIfResultIsCorrect);
 
 
-function addClickHandler() {
+// Making Put Request
+function updateIfResultIsCorrect() {
     base_details_url_current = base_details_url + currentId.toString() + '/'
     objToPut = {"correct_prediction": currentPrediction};
     fetch(base_details_url_current, {
@@ -38,6 +39,7 @@ function addClickHandler() {
 
 
 
+//Making Post Request
 function handleForm(e) {
 
     e.preventDefault();
@@ -72,6 +74,9 @@ function handleForm(e) {
         })
 
 }
+
+// Helping functions below:
+
 function createElementWithResult(d) {
 
     let splitted = d['prediction1'].split(' ');
