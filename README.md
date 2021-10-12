@@ -1,6 +1,6 @@
 # AI_dogs_classifier_SPA
 
-Deployed on AWS - [click](http://dogsbreed.ml/).
+Dedicated article with explanation - [click](http://ivankoev.ml/blog/article/3).
 
 ## Demo [youtube](https://youtu.be/yeMlz56_LpI) 
 
